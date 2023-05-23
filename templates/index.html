@@ -1,0 +1,171 @@
+{{ define "index" }}
+
+{{ template "header" }}
+
+<div class="text-light text-center"
+    style="
+        height: 100px;
+    ">
+    <h1 class="fs-1 fw-bolder">Finance</h1>
+</div>
+
+<div class="row justify-content-center mt-5">
+    <div class="col-2">
+        <div id="simple-list-example" class="d-flex flex-column gap-2 simple-list-example-scrollspy text-center">
+            <a class="list-group-item list-group-item-action bg-secondary text-light" href="#list-item-1">Про компанію</a>
+            <a class="list-group-item list-group-item-action bg-secondary text-light" href="#list-item-2">Графіки</a>
+            <a class="list-group-item list-group-item-action bg-secondary text-light" href="#list-item-3">Прогнози</a>
+        </div>
+    </div>
+    <div class="col-6">
+        <div data-bs-spy="scroll" data-bs-target="#simple-list-example" data-bs-smooth-scroll="true" class="scrollspy-example text-light" tabindex="0">
+            <h1 id="list-item-1">Про компанію</h1>
+            <p>Ласкаво просимо до нашої фінансової компанії!</p>
+
+            <p>Протягом останніх шести років ми працюємо на фінансовому ринку, 
+                надаючи надійні та інноваційні фінансові послуги нашим клієнтам. 
+                Заснована в 2017 році, наша компанія швидко виросла, стала 
+                однією з провідних у галузі і здобула довіру тисяч клієнтів.</p>
+
+                <p>У нашій компанії ми розуміємо, що кожна фінансова ситуація унікальна. 
+                Тому ми пропонуємо широкий спектр послуг, які допоможуть нашим клієнтам досягти 
+                їх фінансових цілей. Наші досвідчені фінансові консультанти завжди готові надати 
+                індивідуальний підхід та забезпечити кращі рішення для кожного клієнта.</p>
+
+                <h4>Основні послуги, які ми надаємо, включають:</h4>
+                <p>Інвестиційні послуги: Ми допоможемо вам розробити персоналізований портфель інвестицій,
+                з урахуванням вашого ризик-профілю та фінансових цілей. Ми пропонуємо широкий вибір інструментів,
+                включаючи акції, облігації, інвестиційні фонди та інші.</p>
+
+                <p>Фінансове планування: Наші експерти з фінансового планування розроблять стратегію, яка допоможе 
+                вам досягти фінансової стабільності та забезпечити комфортне майбутнє. Ми врахуємо ваші поточні 
+                та майбутні фінансові потреби, пенсійне планування, страхування та інші аспекти.</p>
+            
+            <h1 id="list-item-2">Графіки</h1>
+            <canvas id="CompanyChart"></canvas>
+            <section class="container">
+                <div class="row text-light bg-dark">
+                    <div class="col-md-6">
+                        <h2>Дохід</h2>
+                        <table class="table table-striped text-light">
+                            <thead>
+                                <tr>
+                                    <th>Рік</th>
+                                    <th>Виручка</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2017</td>
+                                    <td>$3.300.000</td>
+                                </tr>
+                                <tr>
+                                    <td>2018</td>
+                                    <td>$6.900.000</td>
+                                </tr>
+                                <tr>
+                                    <td>2019</td>
+                                    <td>$10.200.000</td>
+                                </tr>
+                                <tr>
+                                    <td>2020</td>
+                                    <td>$14.500.000</td>
+                                </tr>
+                                <tr>
+                                    <td>2021</td>
+                                    <td>$15.700.000</td>
+                                </tr>
+                                <tr>
+                                    <td>2022</td>
+                                    <td>$19.250.000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        <h2>Витрати</h2>
+                        <table class="table table-striped text-light">
+                            <thead>
+                                <tr>
+                                    <th>Рік</th>
+                                    <th>Виручка</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2017</td>
+                                    <td>$2.800.000</td>
+                                </tr>
+                                <tr>
+                                    <td>2018</td>
+                                    <td>$5.100.000</td>
+                                </tr>
+                                <tr>
+                                    <td>2019</td>
+                                    <td>$8.650.000</td>
+                                </tr>
+                                <tr>
+                                    <td>2020</td>
+                                    <td>$10.950.000</td>
+                                </tr>
+                                <tr>
+                                    <td>2021</td>
+                                    <td>$12.200.000</td>
+                                </tr>
+                                <tr>
+                                    <td>2022</td>
+                                    <td>$16.400.000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+            <h1 id="list-item-3">Прогнози</h1>
+            <p>Наша компанія прагне досягти високих стандартів професійності 
+            та надати найкращі фінансові рішення нашим клієнтам. Ми віримо в довгострокові партнерські
+            відносини та зобов'язані досягти вашої фінансової успішності.</p>
+        </div>
+    </div>
+</div>
+
+<script src='https://cdn.jsdelivr.net/npm/chart.js'></script>
+<script>
+    var ctx = document.getElementById('CompanyChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ["2017","2018","2019","2020","2021","2022",],
+        datasets: [
+        {
+            label: 'Дохід',
+            data: [3300000, 6900000, 10200000, 14500000, 15700000, 19250000],
+            backgroundColor: 'rgba(0, 255, 255, 0.2)',
+            borderColor: 'rgb(0, 255, 255)',
+            borderWidth: 1,
+            fill: true,
+        },
+        {
+            label: 'Витрати',
+            data: [2800000, 5100000, 8650000, 10950000, 12200000, 16400000],
+            backgroundColor: 'rgba(200, 25, 25, 0.2)',
+            borderColor: 'rgb(200, 25, 25)',
+            borderWidth: 1,
+            fill: true,
+        }]
+    },
+    options: {
+        scales: {
+        yAxes: [{
+            ticks: {
+            beginAtZero: true
+            }
+        }]
+        }
+    }
+    });
+</script>
+
+{{ template "footer" }}
+
+{{ end }}

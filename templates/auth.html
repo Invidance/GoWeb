@@ -1,0 +1,35 @@
+{{ define "auth" }}
+
+{{ template "header" }}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card bg-secondary">
+                <div class="card-header">
+                    <h3 class="text-center text-light">Авторизація</h3>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="/components/login_handler.php">
+                        <div class="form-group">
+                            <label for="username text-light">Ім'я користувача:</label>
+                            <input type="text" name="username" id="username" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="password text-light">Пароль:</label>
+                            <input type="password" name="password" id="password" class="form-control">
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Увійти</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{ template "footer" }}
+
+{{ end }}
+

@@ -1,0 +1,27 @@
+{{ define "futures" }}
+
+{{ template "header" }}
+
+<h1 class="fs-1 fw-bolder text-light text-center">Товари</h1>
+<div style="width: 70%; margin: 0 auto;">
+    <div class="row justify-content-center">
+        {{ range . }}
+        <div class="col col-md-2 p-2">
+            <div class="card bg-secondary">
+                <div class="card-body">
+                    <h5 class="card-title text-success"> {{ .Name }} </h5>
+                    <p class="card-text">Ціна: {{ .Price }}</p>
+                    <p class="card-text text-info">Кількість: {{ .Count }}</p>
+                </div>
+            </div>
+        </div>
+        {{ else }}
+        <p>Продуктів на складі немає</p>
+        {{ end }}   
+    </div>
+</div>
+
+{{ template "footer" }}
+
+{{ end }}
+
