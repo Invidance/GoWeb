@@ -25,6 +25,7 @@ func main() {
 }
 
 func mainPage(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("Open main page")
 	page, err := template.ParseFiles("templates/header.html", "templates/index.html", "templates/footer.html")
 
 	if err != nil {
@@ -36,6 +37,8 @@ func mainPage(w http.ResponseWriter, r *http.Request) {
 }
 
 func futuresPage(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("Open product page")
+
 	page, err := template.ParseFiles("templates/header.html", "templates/futures.html", "templates/footer.html")
 
 	if err != nil {
@@ -61,6 +64,7 @@ func futuresPage(w http.ResponseWriter, r *http.Request) {
 }
 
 func authPage(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("Open auth page")
 	page, err := template.ParseFiles("templates/header.html", "templates/auth.html", "templates/footer.html")
 
 	if err != nil {
