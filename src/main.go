@@ -21,7 +21,7 @@ func initPages() {
 func main() {
 	initPages()
 	fmt.Println("Pages inited")
-	http.ListenAndServe("https://goweb-3xb1.onrender.com", nil)
+	http.ListenAndServe("", nil)
 }
 
 func mainPage(w http.ResponseWriter, r *http.Request) {
